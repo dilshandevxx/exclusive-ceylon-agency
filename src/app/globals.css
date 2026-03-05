@@ -23,10 +23,11 @@
     --foreground: var(--color-brand-primary);
   }
 
+  /* Force light theme by applying the same to dark mode */
   @media (prefers-color-scheme: dark) {
     :root {
-      --background: var(--color-brand-primary);
-      --foreground: var(--color-brand-light);
+      --background: var(--color-brand-light);
+      --foreground: var(--color-brand-primary);
     }
   }
 

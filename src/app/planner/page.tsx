@@ -1,7 +1,8 @@
+"use client";
 import Image from "next/image";
-import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { motion } from "framer-motion";
 
 const itineraries = [
   {
@@ -33,25 +34,50 @@ const itineraries = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  show: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 1, ease: "easeOut" as const } 
+  },
+};
+
 export default function Planner() {
   return (
-    <main className="min-h-screen bg-stone-50 dark:bg-stone-950">
+    <main className="min-h-screen bg-white">
       <Navbar />
       
       {/* Planner Header */}
-      <section className="pt-40 pb-20 px-6 md:px-12 bg-stone-900 border-b border-stone-800 relative z-10 w-full flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-stone-900 via-stone-900 to-stone-950 z-10" />
-        <div className="relative z-20 text-center max-w-3xl mx-auto">
-          <span className="text-accent-gold uppercase tracking-[0.3em] text-xs font-semibold mb-6 block animate-fade-in-up">
+      <section className="pt-40 pb-20 px-6 md:px-12 bg-stone-50 border-b border-stone-200 relative z-10 w-full flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-stone-100 via-stone-50 to-white z-10" />
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          animate="show"
+          className="relative z-20 text-center max-w-3xl mx-auto"
+        >
+          <motion.span variants={itemVariants} className="text-accent-gold uppercase tracking-[0.3em] text-xs font-semibold mb-6 block">
             Your Bespoke Adventure
-          </span>
-          <h1 className="text-5xl md:text-7xl font-serif text-white leading-tight mb-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+          </motion.span>
+          <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-serif text-stone-900 leading-tight mb-8">
             Choose Your Journey
-          </h1>
-          <p className="text-stone-400 font-light text-lg md:text-xl leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+          </motion.h1>
+          <motion.p variants={itemVariants} className="text-stone-500 font-light text-lg md:text-xl leading-relaxed">
             Browse our carefully curated itineraries or connect with an artisan to craft a completely personalized Ceylon experience.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
       </section>
 
       {/* Itineraries List */}
@@ -71,17 +97,17 @@ export default function Planner() {
               <div className={`${index % 2 !== 0 ? 'lg:order-1' : ''}`}>
                 <div className="flex items-center gap-4 mb-4">
                   <span className="text-xs font-medium uppercase tracking-widest text-accent-gold">{itinerary.duration}</span>
-                  <span className="w-12 h-px bg-stone-300 dark:bg-stone-700"></span>
+                  <span className="w-12 h-px bg-stone-200"></span>
                   <span className="text-xs font-medium uppercase tracking-widest text-stone-500">{itinerary.price}</span>
                 </div>
-                <h2 className="text-3xl md:text-4xl font-serif text-stone-900 dark:text-stone-50 mb-3">{itinerary.title}</h2>
-                <p className="text-lg text-stone-500 dark:text-stone-400 font-light italic mb-8">{itinerary.tagline}</p>
+                <h2 className="text-3xl md:text-4xl font-serif text-stone-900 mb-3">{itinerary.title}</h2>
+                <p className="text-lg text-stone-500 font-light italic mb-8">{itinerary.tagline}</p>
                 
                 <div className="mb-10">
-                  <h4 className="text-sm font-medium uppercase tracking-widest text-stone-900 dark:text-stone-100 mb-4">Journey Highlights</h4>
+                  <h4 className="text-sm font-medium uppercase tracking-widest text-stone-900 mb-4">Journey Highlights</h4>
                   <ul className="space-y-3">
                     {itinerary.highlights.map((highlight, i) => (
-                      <li key={i} className="flex items-start gap-3 text-stone-600 dark:text-stone-400 font-light text-sm">
+                      <li key={i} className="flex items-start gap-3 text-stone-600 font-light text-sm">
                         <span className="text-accent-gold mt-1">✦</span>
                         {highlight}
                       </li>
@@ -89,7 +115,7 @@ export default function Planner() {
                   </ul>
                 </div>
                 
-                <button className="bg-stone-900 text-stone-50 dark:bg-stone-50 dark:text-stone-900 hover:bg-accent-gold hover:text-white dark:hover:bg-accent-gold dark:hover:text-white px-8 py-4 rounded-full text-sm font-medium tracking-wider uppercase transition-colors">
+                <button className="bg-stone-900 text-white hover:bg-accent-gold hover:text-white px-8 py-4 rounded-full text-sm font-medium tracking-wider uppercase transition-all duration-300 shadow-md">
                   Inquire Now
                 </button>
               </div>
@@ -99,13 +125,13 @@ export default function Planner() {
       </section>
 
       {/* Custom Request CTA */}
-      <section className="py-24 px-6 md:px-12 bg-stone-100 dark:bg-stone-900 border-t border-stone-200 dark:border-stone-800 text-center">
+      <section className="py-24 px-6 md:px-12 bg-stone-50 border-t border-stone-200 text-center">
         <div className="container mx-auto max-w-3xl">
-          <h2 className="text-3xl md:text-4xl font-serif text-stone-900 dark:text-stone-50 mb-6">Seeking Something Unique?</h2>
-          <p className="text-stone-600 dark:text-stone-400 font-light mb-10 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-serif text-stone-900 mb-6">Seeking Something Unique?</h2>
+          <p className="text-stone-500 font-light mb-10 max-w-2xl mx-auto">
             Our travel artisans specialize in designing completely custom itineraries from scratch. Let us know your dreams, and we will manifest them.
           </p>
-          <button className="border border-stone-900 text-stone-900 dark:border-stone-50 dark:text-stone-50 hover:bg-stone-900 hover:text-white dark:hover:bg-stone-50 dark:hover:text-stone-900 px-8 py-4 rounded-full text-sm font-medium tracking-wider uppercase transition-colors">
+          <button className="border border-stone-900 text-stone-900 hover:bg-stone-900 hover:text-white px-8 py-4 rounded-full text-sm font-medium tracking-wider uppercase transition-colors">
             Contact an Artisan
           </button>
         </div>

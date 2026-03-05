@@ -17,15 +17,15 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/90 dark:bg-black/90 backdrop-blur-md shadow-sm py-4"
+          ? "bg-white/95 backdrop-blur-md shadow-sm py-4 border-b border-stone-100"
           : "bg-transparent py-6"
       }`}
     >
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-serif font-bold tracking-tight text-white mix-blend-difference z-50">
-          Exclusive<span className="text-accent-gold-dark dark:text-accent-gold">Ceylon</span>
+        <Link href="/" className={`text-2xl font-serif font-bold tracking-tight z-50 transition-colors ${scrolled ? 'text-stone-900' : 'text-white drop-shadow-md'}`}>
+          Exclusive<span className="text-accent-gold-dark hover:text-accent-gold transition-colors">Ceylon</span>
         </Link>
-        <div className={`hidden md:flex space-x-8 text-sm font-medium tracking-wide uppercase ${scrolled ? 'text-stone-900 dark:text-stone-100' : 'text-stone-100'}`}>
+        <div className={`hidden md:flex space-x-8 text-sm font-medium tracking-wide uppercase transition-colors ${scrolled ? 'text-stone-600' : 'text-stone-100 drop-shadow-md'}`}>
           <Link href="/planner" className="hover:text-accent-gold transition-colors">
             Journeys
           </Link>
@@ -36,7 +36,7 @@ export default function Navbar() {
             Shop
           </Link>
         </div>
-        <button className={`hidden md:block px-6 py-2 rounded-full text-sm font-medium hover:bg-accent-gold dark:hover:bg-accent-gold hover:text-white transition-colors ${scrolled ? 'bg-stone-900 text-stone-50 dark:bg-stone-50 dark:text-stone-900' : 'bg-white text-stone-900'}`}>
+        <button className={`hidden md:block px-6 py-2 rounded-full text-sm font-medium hover:bg-accent-gold hover:text-white transition-all ${scrolled ? 'bg-stone-900 text-white shadow-sm hover:shadow-md' : 'bg-white/90 backdrop-blur-sm text-stone-900 hover:bg-white shadow-sm'}`}>
           Plan Your Journey
         </button>
       </div>

@@ -1,5 +1,7 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const journeys = [
   {
@@ -25,27 +27,61 @@ const journeys = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.8, ease: "easeOut" as const } 
+  },
+};
+
 export default function Journeys() {
   return (
-    <section id="journeys" className="py-24 md:py-32 px-6 md:px-12 bg-stone-100 dark:bg-stone-900 border-y border-stone-200 dark:border-stone-800">
+    <section id="journeys" className="py-24 md:py-32 px-6 md:px-12 bg-white border-y border-stone-100">
       <div className="container mx-auto max-w-7xl">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={containerVariants}
+          className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6"
+        >
           <div className="max-w-xl">
-            <span className="text-accent-gold uppercase tracking-[0.2em] text-xs font-semibold mb-4 block animate-fade-in-up">
+            <motion.span variants={itemVariants} className="text-accent-gold uppercase tracking-[0.2em] text-xs font-semibold mb-4 block">
               Custom Itineraries
-            </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-stone-900 dark:text-stone-50 leading-tight animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            </motion.span>
+            <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl lg:text-6xl font-serif text-stone-900 leading-tight">
               Bespoke Journeys
-            </h2>
+            </motion.h2>
           </div>
-          <Link href="/planner" className="text-sm border-b border-stone-900 dark:border-stone-50 pb-1 hover:text-accent-gold hover:border-accent-gold transition-colors font-medium uppercase tracking-wider animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-            Choose Your Journey
-          </Link>
-        </div>
+          <motion.div variants={itemVariants}>
+            <Link href="/planner" className="text-sm text-stone-900 border-b-2 border-transparent hover:border-accent-gold hover:text-accent-gold pb-1 transition-all duration-300 font-medium uppercase tracking-wider">
+              Choose Your Journey
+            </Link>
+          </motion.div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-          {journeys.map((journey, i) => (
-            <div key={journey.id} className="group relative overflow-hidden rounded-xl cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500 bg-white dark:bg-stone-950 flex flex-col h-full animate-fade-in-up" style={{ animationDelay: `${0.4 + i * 0.2}s` }}>
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={containerVariants}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12"
+        >
+          {journeys.map((journey) => (
+            <motion.div variants={itemVariants} key={journey.id} className="group relative overflow-hidden rounded-xl cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500 bg-stone-50 border border-stone-100 flex flex-col h-full">
               <div className="relative h-64 w-full overflow-hidden">
                 <Image
                   src={journey.image}
@@ -60,26 +96,34 @@ export default function Journeys() {
                   <span className="text-accent-gold/90 text-[10px] md:text-xs font-semibold uppercase tracking-[0.2em] block mb-3">
                     {journey.duration}
                   </span>
-                  <h3 className="text-2xl text-stone-900 dark:text-white font-serif font-medium leading-snug mb-4 group-hover:text-accent-gold transition-colors">
+                  <h3 className="text-2xl text-stone-900 font-serif font-medium leading-snug mb-4 group-hover:text-accent-gold transition-colors">
                     {journey.title}
                   </h3>
-                  <p className="text-stone-600 dark:text-stone-400 font-light mb-8">
+                  <p className="text-stone-500 font-light mb-8">
                     {journey.description}
                   </p>
                 </div>
-                <Link href={`/planner#${journey.id}`} className="inline-flex py-3 px-6 border border-stone-300 dark:border-stone-700 hover:border-stone-900 dark:hover:border-stone-300 rounded-full text-xs font-medium tracking-wide uppercase transition-all duration-300 self-start">
+                <Link href={`/planner#${journey.id}`} className="inline-flex py-3 px-6 border border-stone-200 hover:border-stone-900 text-stone-900 hover:bg-stone-900 hover:text-white rounded-full text-xs font-medium tracking-wide uppercase transition-all duration-300 self-start">
                   View Itinerary
                 </Link>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
         
-        <div className="mt-16 text-center animate-fade-in-up" style={{ animationDelay: '1s' }}>
-          <Link href="/planner" className="inline-block bg-stone-900 dark:bg-stone-50 text-stone-50 dark:text-stone-900 hover:bg-accent-gold dark:hover:bg-accent-gold hover:text-white dark:hover:text-white px-10 py-5 rounded-full text-sm font-semibold tracking-wide uppercase transition-all duration-300">
-            Choose Your Journey
-          </Link>
-        </div>
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={containerVariants}
+          className="mt-16 text-center"
+        >
+          <motion.div variants={itemVariants}>
+            <Link href="/planner" className="inline-block bg-stone-900 text-white hover:bg-accent-gold hover:text-white px-10 py-5 rounded-full text-sm font-semibold tracking-wide uppercase transition-all duration-300 shadow-lg hover:shadow-xl">
+              Start Planning
+            </Link>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

@@ -18,9 +18,9 @@ export default function Whispers() {
   ];
 
   return (
-    <section className="py-24 md:py-32 px-6 md:px-12 bg-stone-100 dark:bg-stone-900 border-y border-stone-200 dark:border-stone-800 relative overflow-hidden">
+    <section className="py-24 md:py-32 px-6 md:px-12 bg-stone-50 border-y border-stone-100 relative overflow-hidden">
       {/* Decorative large quotes */}
-      <div className="absolute top-10 right-10 md:top-20 md:right-32 text-[200px] text-stone-200 dark:text-stone-800 font-serif leading-none select-none opacity-50 z-0">
+      <div className="absolute top-10 right-10 md:top-20 md:right-32 text-[200px] text-stone-200 font-serif leading-none select-none opacity-50 z-0">
         "
       </div>
       
@@ -29,7 +29,7 @@ export default function Whispers() {
           <span className="text-accent-gold uppercase tracking-[0.2em] text-xs font-semibold mb-4 block">
             Whispers
           </span>
-          <h2 className="text-4xl md:text-5xl font-serif text-stone-900 dark:text-stone-50 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-serif text-stone-900 leading-tight">
             From Our Guests
           </h2>
         </div>
@@ -38,20 +38,20 @@ export default function Whispers() {
           {testimonials.map((t, idx) => (
             <div 
               key={idx} 
-              className="p-8 md:p-10 bg-white dark:bg-stone-950 rounded-2xl shadow-sm border border-stone-100 dark:border-stone-800 flex flex-col justify-between hover:shadow-xl hover:-translate-y-2 transition-all duration-500"
+              className="p-8 md:p-10 bg-white rounded-2xl shadow-sm border border-stone-100 flex flex-col justify-between hover:shadow-xl hover:-translate-y-2 transition-all duration-500"
             >
-              <p className="text-stone-600 dark:text-stone-400 font-light text-lg italic leading-relaxed mb-10">
+              <p className="text-stone-600 font-light text-lg italic leading-relaxed mb-10">
                 "{t.quote}"
               </p>
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-stone-200 dark:bg-stone-800 flex items-center justify-center font-serif text-stone-900 dark:text-stone-50">
+                <div className="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center font-serif text-stone-900">
                   {t.author.charAt(0)}
                 </div>
                 <div>
-                  <h4 className="font-medium text-stone-900 dark:text-stone-50 text-sm">
+                  <h4 className="font-medium text-stone-900 text-sm">
                     {t.author}
                   </h4>
-                  <span className="text-xs text-stone-500 dark:text-stone-500 uppercase tracking-wider">
+                  <span className="text-xs text-stone-500 uppercase tracking-wider">
                     {t.location}
                   </span>
                 </div>
