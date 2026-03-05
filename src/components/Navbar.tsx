@@ -25,42 +25,51 @@ export default function Navbar() {
             : "bg-transparent py-6"
         }`}
       >
-        <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
+      <div className="container mx-auto px-6 md:px-12 flex justify-between items-center md:grid md:grid-cols-3 md:items-center">
+        {/* Left Links (Desktop) */}
+        <div className={`hidden md:flex justify-start space-x-8 text-[11px] font-semibold tracking-[0.2em] uppercase transition-colors ${scrolled ? 'text-stone-500' : 'text-white/90 drop-shadow-md'}`}>
+          <Link href="/planner" className="hover:text-accent-gold transition-colors relative group py-2">
+            Journeys
+            <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-accent-gold transition-all duration-300 group-hover:w-full"></span>
+          </Link>
+          <Link href="/#about" className="hover:text-accent-gold transition-colors relative group py-2">
+            Journal
+            <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-accent-gold transition-all duration-300 group-hover:w-full"></span>
+          </Link>
+        </div>
+
+        {/* Center Logo */}
+        <div className="flex justify-start md:justify-center z-50">
           <Link 
             href="/" 
-            className={`text-2xl font-serif font-bold tracking-tight z-50 transition-colors ${scrolled || mobileMenuOpen ? 'text-stone-900' : 'text-white drop-shadow-md'}`}
+            className={`text-2xl md:text-3xl font-serif font-bold tracking-tight transition-colors ${scrolled || mobileMenuOpen ? 'text-stone-900' : 'text-white drop-shadow-md'}`}
             onClick={() => setMobileMenuOpen(false)}
           >
             Exclusive<span className="text-accent-gold-dark hover:text-accent-gold transition-colors">Ceylon</span>
           </Link>
-          
-          {/* Desktop Navigation */}
-          <div className={`hidden md:flex space-x-8 text-sm font-medium tracking-wide uppercase transition-colors ${scrolled ? 'text-stone-600' : 'text-stone-100 drop-shadow-md'}`}>
-            <Link href="/planner" className="hover:text-accent-gold transition-colors">
-              Journeys
-            </Link>
-            <Link href="/#about" className="hover:text-accent-gold transition-colors">
-              Journal
-            </Link>
-            <Link href="/shop" className="hover:text-accent-gold transition-colors">
-              Shop
-            </Link>
-          </div>
-          
-          <div className="hidden md:block">
-            <Link href="/planner" className={`px-6 py-2.5 rounded-full text-sm font-medium hover:bg-accent-gold hover:text-white transition-all ${scrolled ? 'bg-stone-900 text-white shadow-sm hover:shadow-md' : 'bg-white/90 backdrop-blur-sm text-stone-900 hover:bg-white shadow-sm'}`}>
-              Plan Your Journey
-            </Link>
-          </div>
+        </div>
+        
+        {/* Right Links (Desktop) */}
+        <div className={`hidden md:flex items-center justify-end space-x-8 text-[11px] font-semibold tracking-[0.2em] uppercase transition-colors ${scrolled ? 'text-stone-500' : 'text-white/90 drop-shadow-md'}`}>
+          <Link href="/shop" className="hover:text-accent-gold transition-colors relative group py-2">
+            Shop
+            <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-accent-gold transition-all duration-300 group-hover:w-full"></span>
+          </Link>
+          <Link href="/planner" className={`px-7 py-3 rounded-full transition-all duration-300 ${scrolled ? 'bg-stone-900 text-white shadow-sm hover:bg-accent-gold hover:shadow-md' : 'bg-white/10 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-stone-900 shadow-sm'}`}>
+            Plan Your Journey
+          </Link>
+        </div>
 
-          {/* Mobile Menu Toggle Button */}
+        {/* Mobile Menu Toggle Button */}
+        <div className="flex md:hidden justify-end z-50">
           <button 
-            className={`md:hidden p-2 rounded-md focus:outline-none z-50 transition-colors ${scrolled || mobileMenuOpen ? 'text-stone-900' : 'text-white drop-shadow-md'}`}
+            className={`p-2 focus:outline-none transition-colors ${scrolled || mobileMenuOpen ? 'text-stone-900' : 'text-white drop-shadow-md'}`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
+      </div>
       </nav>
 
       {/* Mobile Menu Overlay */}

@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import TrustBar from "@/components/TrustBar";
 import Narrative from "@/components/Narrative";
 import Amenities from "@/components/Amenities";
 import Journeys from "@/components/Journeys";
@@ -12,6 +13,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Navbar />
       <Hero />
+      <TrustBar />
       <Journeys />
       <Narrative />
       <Amenities />
