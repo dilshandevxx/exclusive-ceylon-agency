@@ -1,0 +1,23 @@
+
+> temp-app@0.1.0 lint
+> eslint
+
+
+C:\Users\dilsh\Desktop\works\web\01-e commese\01-exclusive ceylon web\src\app\shop\page.tsx
+   2:8   warning  'Link' is defined but never used                                 @typescript-eslint/no-unused-vars
+  53:36  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\dilsh\Desktop\works\web\01-e commese\01-exclusive ceylon web\src\components\Hero.tsx
+  88:54  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\dilsh\Desktop\works\web\01-e commese\01-exclusive ceylon web\src\components\Narrative.tsx
+  38:26  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  45:58  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\dilsh\Desktop\works\web\01-e commese\01-exclusive ceylon web\src\components\Whispers.tsx
+  24:9   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  44:17  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  44:27  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+Γ£û 8 problems (7 errors, 1 warning)
+

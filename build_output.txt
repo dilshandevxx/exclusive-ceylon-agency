@@ -1,0 +1,39 @@
+
+> temp-app@0.1.0 build
+> next build
+
+ΓÜá Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of C:\Users\dilsh\package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * C:\Users\dilsh\Desktop\works\web\01-e commese\01-exclusive ceylon web\package-lock.json
+
+Γû▓ Next.js 16.1.6 (Turbopack)
+
+  Creating an optimized production build ...
+Γ£ô Compiled successfully in 17.6s
+  Running TypeScript ...
+Failed to compile.
+
+./src/components/Amenities.tsx:94:15
+Type error: Type '{ hidden: { opacity: number; y: number; }; visible: { opacity: number; y: number; transition: { duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.
+  Property 'visible' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues$1 | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'ease' are incompatible.
+                    Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+
+  92 |             <motion.div 
+  93 |               key={item.id} 
+> 94 |               variants={itemVariants}
+     |               ^
+  95 |               className="flex flex-col items-center justify-center p-10 bg-stone-50 rounded-2xl border border-stone-100 hover:border-accent-gold/50 shadow-sm hover:shadow-xl transition-all duration-500 group cursor-pointer"
+  96 |             >
+  97 |               <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-sm mb-6 group-hover:-translate-y-2 transition-transform duration-500 border border-stone-100 group-hover:border-accent-gold/20">
+Next.js build worker exited with code: 1 and signal: null

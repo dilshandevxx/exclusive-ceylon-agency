@@ -35,14 +35,14 @@ export default function Narrative() {
             className="order-2 lg:order-1 lg:col-span-5 max-w-xl"
           >
              <motion.span variants={fadeUpVariant} className="text-accent-gold uppercase tracking-[0.3em] text-[10px] md:text-xs font-semibold mb-8 block">
-              The Artisan's Narrative
+              The Artisan&apos;s Narrative
              </motion.span>
              <motion.h2 variants={fadeUpVariant} className="text-4xl md:text-5xl lg:text-6xl font-serif text-stone-900 leading-tight mb-10">
               Crafting Memories Beyond the Ordinary
              </motion.h2>
              <motion.div variants={fadeUpVariant} className="space-y-8 text-stone-600 font-light text-lg md:text-xl leading-relaxed">
               <p>
-                We believe that travel is an art form. It's the delicate balance of thrilling discovery and serene reprieve. At Exclusive Ceylon, we compose symphonies of experiences tailored exactly to your rhythm.
+                We believe that travel is an art form. It&apos;s the delicate balance of thrilling discovery and serene reprieve. At Exclusive Ceylon, we compose symphonies of experiences tailored exactly to your rhythm.
               </p>
               <p>
                  From private seaplane transfers over the emerald canopy to exclusive dinners within ancient ruins, our artisans weave narratives that linger long after the journey ends.

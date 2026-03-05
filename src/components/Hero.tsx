@@ -85,7 +85,7 @@ export default function Hero() {
           <div className="lg:col-span-7 flex flex-col items-start">
             <motion.h1 variants={itemVariants} className="text-5xl sm:text-6xl md:text-7xl lg:text-[90px] text-white font-bold leading-[1.1] mb-12 tracking-tight">
               Discover<br />
-              <span className="text-stone-300">Ceylon's</span><br />
+              <span className="text-stone-300">Ceylon&apos;s</span><br />
               Hidden Trails
             </motion.h1>
             

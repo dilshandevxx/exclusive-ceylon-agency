@@ -21,7 +21,7 @@ export default function Whispers() {
     <section className="py-24 md:py-32 px-6 md:px-12 bg-stone-50 border-y border-stone-100 relative overflow-hidden">
       {/* Decorative large quotes */}
       <div className="absolute top-10 right-10 md:top-20 md:right-32 text-[200px] text-stone-200 font-serif leading-none select-none opacity-50 z-0">
-        "
+        &quot;
       </div>
       
       <div className="container mx-auto max-w-7xl relative z-10">
@@ -41,7 +41,7 @@ export default function Whispers() {
               className="p-8 md:p-10 bg-white rounded-2xl shadow-sm border border-stone-100 flex flex-col justify-between hover:shadow-xl hover:-translate-y-2 transition-all duration-500"
             >
               <p className="text-stone-600 font-light text-lg italic leading-relaxed mb-10">
-                "{t.quote}"
+                &quot;{t.quote}&quot;
               </p>
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center font-serif text-stone-900">

@@ -50,7 +50,7 @@ export default function Shop() {
             The Artisan Boutique
           </h1>
           <p className="text-stone-500 font-light text-lg md:text-xl leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-            Bring a piece of Ceylon's heritage into your home with our curated selection of luxury goods.
+            Bring a piece of Ceylon&apos;s heritage into your home with our curated selection of luxury goods.
           </p>
         </div>
       </section>
