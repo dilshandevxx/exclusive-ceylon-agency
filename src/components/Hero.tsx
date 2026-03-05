@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Calendar, ChevronDown, Star } from "lucide-react";
+import { Star } from "lucide-react";
 
 const backgroundImages = [
   "/images/hero/srilanka_ella_train_1772679391831.png",
@@ -104,59 +104,7 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Column - Booking Card */}
-          <motion.div variants={itemVariants} className="lg:col-span-5 lg:col-start-8 w-full">
-            <div className="bg-[#1A1F1C]/70 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-2xl">
-              <h3 className="text-2xl font-medium text-white mb-6 leading-tight">
-                Exclusive Ceylon<br />Eco Resort
-              </h3>
-
-              {/* Date Pickers */}
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="bg-[#111412]/60 rounded-xl p-4 flex items-center justify-between cursor-pointer hover:bg-[#111412]/80 transition-colors">
-                  <div className="flex items-center gap-3">
-                    <Calendar className="w-4 h-4 text-stone-400" />
-                    <span className="text-stone-200 text-sm font-medium">Feb 21</span>
-                  </div>
-                  <ChevronDown className="w-4 h-4 text-stone-500" />
-                </div>
-                <div className="bg-[#111412]/60 rounded-xl p-4 flex items-center justify-between cursor-pointer hover:bg-[#111412]/80 transition-colors">
-                  <div className="flex items-center gap-3">
-                    <Calendar className="w-4 h-4 text-stone-400" />
-                    <span className="text-stone-200 text-sm font-medium">Feb 27</span>
-                  </div>
-                  <ChevronDown className="w-4 h-4 text-stone-500" />
-                </div>
-              </div>
-
-              {/* Check-in / Check-out Details */}
-              <div className="flex items-center gap-6 mb-8 mt-2">
-                <div className="flex-1">
-                  <span className="text-stone-500 text-xs block mb-1">Check-in</span>
-                  <span className="text-stone-300 text-sm font-medium">After 2:00 PM</span>
-                </div>
-                <div className="w-px h-10 bg-white/10"></div>
-                <div className="flex-1">
-                  <span className="text-stone-500 text-xs block mb-1">Check-out</span>
-                  <span className="text-stone-300 text-sm font-medium">Until 12:00 PM</span>
-                </div>
-              </div>
-
-              {/* Price & Guests */}
-              <div className="flex items-end justify-between mb-8">
-                <div>
-                  <span className="text-3xl font-bold text-white tracking-tight">$350.00</span>
-                  <span className="text-stone-400 text-sm">/night</span>
-                </div>
-                <span className="text-stone-400 text-sm font-medium">2-5 Guests</span>
-              </div>
-
-              {/* Button */}
-              <Link href="/planner" className="w-full bg-white text-stone-900 hover:bg-stone-200 py-4 rounded-xl text-center font-semibold transition-colors duration-300 block shadow-lg">
-                Book Now
-              </Link>
-            </div>
-          </motion.div>
+          {/* Only Left Column Text remains */}
         </motion.div>
       </div>
 
