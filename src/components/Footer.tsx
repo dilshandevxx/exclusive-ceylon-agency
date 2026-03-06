@@ -1,4 +1,6 @@
 import { Instagram, Facebook, Twitter, MapPin, Phone, Mail } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -9,9 +11,16 @@ export default function Footer() {
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
           <div className="col-span-1 md:col-span-4">
-            <h3 className="text-3xl font-serif font-bold tracking-tight text-white mb-6">
-              Exclusive<span className="text-accent-gold">Ceylon</span>
-            </h3>
+            <Link href="/" className="inline-block mb-6 transition-transform hover:scale-[1.02]">
+              <div className="relative w-[150px] h-[45px] md:w-[180px] md:h-[55px] mix-blend-screen opacity-90">
+                <Image 
+                  src="/images/logo/1000149818.webp" 
+                  alt="Exclusive Ceylon Logo" 
+                  fill 
+                  className="object-contain object-left"
+                />
+              </div>
+            </Link>
             <p className="max-w-md font-light text-sm leading-relaxed mb-8 block w-full text-stone-400">
               Curating unparalleled luxury experiences across the resplendent isle of Sri Lanka. Discover the extraordinary with our dedicated travel artisans, turning every journey into a masterpiece.
             </p>

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -42,10 +43,18 @@ export default function Navbar() {
         <div className="flex justify-start md:justify-center z-50">
           <Link 
             href="/" 
-            className={`text-2xl md:text-3xl font-serif font-bold tracking-tight transition-colors ${scrolled || mobileMenuOpen ? 'text-stone-900' : 'text-white drop-shadow-md'}`}
+            className="flex items-center gap-2 z-50 transition-transform hover:scale-[1.02]"
             onClick={() => setMobileMenuOpen(false)}
           >
-            Exclusive<span className="text-accent-gold-dark hover:text-accent-gold transition-colors">Ceylon</span>
+            <div className={`relative w-10 h-10 md:w-14 md:h-14 rounded-full overflow-hidden flex-shrink-0 bg-black transition-all duration-300 shadow-md ${!scrolled && !mobileMenuOpen ? 'ring-2 ring-white/20' : 'ring-1 ring-stone-200'}`}>
+              <Image 
+                src="/images/logo/1000149818.webp" 
+                alt="Exclusive Ceylon Logo" 
+                fill 
+                className="object-contain"
+                priority
+              />
+            </div>
           </Link>
         </div>
         
